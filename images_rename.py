@@ -10,13 +10,13 @@ def main():
     filename = args.filename
 
     if args.disable == True:
-        print("randomization disabled")
+        print(">>> Randomization disabled")
         randomization = False
     elif args.disable == False:
-        print("randomization enabled")
+        print(">>> Randomization enabled")
 
     if not_a_directory(dir_name):
-        print("Error: not a directory")
+        print(">>> Error: not a directory")
         raise ValueError
 
     # change directory
@@ -48,7 +48,7 @@ def rename_files(file_list, new_name, randomize):
         extension = get_extension(filename)
         new_filename = new_name + str(counter) + randomized_name + extension
         rename(filename, new_filename)
-    print("Renamed", counter, "files")
+    print(">>> Renamed", counter, "files")
 
 
 def get_extension(file_name):
