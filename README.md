@@ -1,7 +1,7 @@
 # Images Rename
 A simple script created for renaming files in a directory in a consistent manner. It renames files inside of the specified directory with a new name followed by a number, which increment by one starting from 1 for every file. A random number is generated each time the script is executed, and is then being appended to the end of the filename.
 
-## Use Cases
+## Use Case
 Howard downloaded a ton of image data for training his machine learning model but too lazy to rename them one by one.
 
 ## Getting started
@@ -21,9 +21,10 @@ python3 images-rename.py <directory> [-f filename] [-d]
 - -d: disable default randomization in the naming.
 
 
-### Note
+### Notes
 - The script will only rename unhidden files (files with no "." at the beginning of their names). It will also ignore folders and files with no extension.
 - The randomization feature was added so that files won't be overwritten or deleted if one executes the program more than once in a row.
 
 ## Screenshot
-![screenshot]( "screenshot")
+![screenshot](https://github.com/hsuanhauliu/images-rename/blob/master/screenshots/demo1.jpg "demo1")
+![screenshot](https://github.com/hsuanhauliu/images-rename/blob/master/screenshots/demo2.jpg "demo2")
