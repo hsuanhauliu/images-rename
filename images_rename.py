@@ -26,28 +26,29 @@ def main():
     myFiles = grab_files()
 
     # start renaming files
-    rename_files(myFiles, filename, randomization)
+    rename_files(myFiles, filename, args.start, randomization)
 
     return
 
-def rename_files(file_list, new_name, randomize):
+def rename_files(file_list, new_name, current, randomize):
     """
     file_list: list of filenames
     name: name of the files that we will use for renaming
     randomize: a flag indicating whether to add randomized number to prevent overwriting
     """
 
-    counter = 0
     randomized_name = ""
+    counter = 0
 
     if randomize:
         randomized_name = "_" + str(random.randint(0, 1000))
 
     for filename in file_list:
-        counter += 1
         extension = get_extension(filename)
-        new_filename = new_name + str(counter) + randomized_name + extension
+        new_filename = new_name + str(current) + randomized_name + extension
         rename(filename, new_filename)
+        counter += 1
+        current += 1
     print(">>> Renamed", counter, "files")
 
 
@@ -79,6 +80,8 @@ def parse_inputs():
             help="disable adding randomized name in file names")
     parser.add_argument("-f", "--filename", type=str, default="file",
             help="input a file name that will be used for the files")
+    parser.add_argument("-s", "--start", type=int, default=1,
+            help="starting number for the naming")
 
     return parser.parse_args()
 
